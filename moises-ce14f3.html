@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Seleção de oportunidades | Leilão com Neto</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-deep: #081020; --navy: #0E1B32; --navy-soft: #16294A; --navy-card: #161B24;
+      --gold: #BFA05B; --gold-light: #DFC98F; --gold-dark: #8C7239;
+      --cream: #F7F5F0; --white: #FFFFFF; --muted: #8891A0; --muted-soft: #9A9FA8;
+      --whatsapp: #25D366; --warn: #E0A458; --ok: #6FCF97;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--navy-deep); color: var(--cream); font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.55; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    header { background: var(--navy); border-bottom: 1px solid rgba(191,160,91,.2); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 14px; }
+    header img { height: 44px; width: auto; }
+    header .tag { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-light); }
+
+    .hero { padding: 44px 0 28px; background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%); }
+    .hero h1 { font-size: clamp(26px, 5vw, 40px); font-weight: 800; color: var(--white); line-height: 1.2; margin-bottom: 12px; }
+    .hero h1 span { color: var(--gold-light); }
+    .hero p.lede { color: var(--muted-soft); font-size: 17px; max-width: 640px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .chip { background: rgba(191,160,91,.1); border: 1px solid rgba(191,160,91,.3); border-radius: 999px; padding: 8px 14px; font-size: 13px; }
+    .chip b { color: var(--gold-light); font-weight: 700; margin-right: 6px; }
+    .prepared { margin-top: 18px; font-size: 13px; color: var(--muted); }
+
+    .section-title { font-size: 13px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin: 28px 0 16px; }
+
+    .grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 820px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+    .card { background: var(--navy-card); border: 1px solid rgba(255,255,255,.07); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+    .photo { aspect-ratio: 16/10; background: linear-gradient(135deg, var(--navy-soft), var(--navy)); position: relative; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 13px; }
+    .photo img { width: 100%; height: 100%; object-fit: cover; }
+    .badge { position: absolute; top: 12px; left: 12px; background: var(--navy-deep); color: var(--gold-light); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(191,160,91,.4); }
+    .discount { position: absolute; top: 12px; right: 12px; background: var(--gold); color: var(--navy-deep); font-weight: 800; font-size: 13px; padding: 6px 10px; border-radius: 999px; }
+    .body { padding: 20px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+    .body h3 { font-size: 19px; color: var(--white); font-weight: 700; line-height: 1.3; }
+    .loc { color: var(--muted-soft); font-size: 14px; margin-top: -8px; }
+    .prices { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .price small { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .price strong { font-size: 18px; color: var(--white); }
+    .price.main strong { color: var(--gold-light); font-size: 20px; }
+    .facts { display: flex; flex-wrap: wrap; gap: 8px; }
+    .fact { font-size: 12px; background: rgba(255,255,255,.05); border-radius: 6px; padding: 5px 9px; color: var(--cream); }
+    .fact.warn { color: var(--warn); background: rgba(224,164,88,.1); }
+    .fact.ok { color: var(--ok); background: rgba(111,207,151,.1); }
+    .note { font-size: 14px; color: #D8D9DE; border-left: 3px solid var(--gold); padding-left: 12px; }
+    .note b { color: var(--gold-light); }
+    .attention { font-size: 13px; color: var(--warn); }
+    .actions { display: flex; gap: 10px; margin-top: auto; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; padding: 13px 18px; border-radius: 999px; flex: 1; text-align: center; }
+    .btn-wa { background: var(--whatsapp); color: var(--white); }
+    .btn-ghost { border: 1px solid rgba(255,255,255,.18); color: var(--cream); }
+    .btn-map { background: rgba(191,160,91,.12); border: 1px solid rgba(191,160,91,.45); color: var(--gold-light); flex-basis: 100%; }
+    .btn-map:hover { background: rgba(191,160,91,.22); }
+    .addr { font-size: 13px; color: var(--muted); margin-top: -8px; }
+
+    .closing { margin: 40px 0 24px; background: linear-gradient(135deg, var(--navy-soft), var(--navy-card)); border: 1px solid rgba(191,160,91,.25); border-radius: 16px; padding: 32px 24px; text-align: center; }
+    .closing h2 { font-size: 22px; color: var(--white); margin-bottom: 8px; }
+    .closing p { color: var(--muted-soft); margin-bottom: 20px; }
+    .closing .btn { flex: none; padding: 15px 30px; }
+
+    .disclaimer { font-size: 12px; color: var(--muted); max-width: 760px; margin: 0 auto 32px; text-align: center; }
+    footer { border-top: 1px solid rgba(191,160,91,.15); padding: 24px 0; text-align: center; color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <!-- dados da proposta -->
+  <script>
+    const PROPOSTA = {
+      "cliente": "Moisés",
+      "preparadoEm": "14/10/2026",
+      "whatsapp": "5534999741396",
+      "perfil": {
+        "Finalidade": "Moradia",
+        "Faixa de investimento": "R$ 80 mil a R$ 120 mil",
+        "Região": "Uberaba / MG"
+      },
+      "imoveis": [
+        {
+          "data": "14/10/2026 às 18h (venda online)",
+          "rotuloValor": "Valor de venda",
+          "ocupacao": "Pode estar ocupado",
+          "atencao": "Pode estar ocupado: confirmo a situação e as despesas de condomínio no edital antes de qualquer lance.",
+          "titulo": "Reserva Ushuaia — Apto. 202",
+          "bairro": "Zeca Mendes",
+          "cidade": "Uberaba",
+          "uf": "MG",
+          "modalidade": "Venda online",
+          "avaliacao": 173000,
+          "lance": 87141.03,
+          "area": "40,28 m² privativos · 58,52 m² totais",
+          "quartos": "2 quartos",
+          "vagas": "1 vaga",
+          "extras": [
+            "Aceita FGTS e financiamento"
+          ],
+          "foto": "img/moises/8444431545384.jpg",
+          "endereco": "Av. Laerte de Oliveira, 405 · Apto. 202, Bl. 15 · CEP 38100-000",
+          "mapa": "Avenida Laerte de Oliveira, 405, Zeca Mendes, Uberaba, MG",
+          "analise": "Maior desconto da seleção, dentro da sua faixa de investimento."
+        },
+        {
+          "data": "14/10/2026 às 18h (venda online)",
+          "rotuloValor": "Valor de venda",
+          "ocupacao": "Pode estar ocupado",
+          "atencao": "Pode estar ocupado: confirmo a situação e as despesas de condomínio no edital antes de qualquer lance.",
+          "titulo": "Parque Utah — Apto. 304",
+          "bairro": "",
+          "cidade": "Uberaba",
+          "uf": "MG",
+          "modalidade": "Venda online",
+          "avaliacao": 155000,
+          "lance": 89892.11,
+          "area": "44,14 m² privativos · 96,4 m² totais",
+          "quartos": "2 quartos",
+          "vagas": "1 vaga",
+          "extras": [
+            "Aceita FGTS e financiamento"
+          ],
+          "foto": "img/moises/8444416025316.jpg",
+          "endereco": "Av. Niza Marquez Guarita, 1315 · Apto. 304, Bl. 03",
+          "mapa": "Avenida Niza Marquez Guarita, 1315, Uberaba, MG",
+          "analise": "Maior área total da seleção (96 m²), com 2 quartos e vaga de garagem."
+        },
+        {
+          "data": "14/10/2026 às 18h (venda online)",
+          "rotuloValor": "Valor de venda",
+          "ocupacao": "Pode estar ocupado",
+          "atencao": "O anúncio não informa quartos nem vagas. Levanto esses detalhes antes de recomendar. Pode estar ocupado: confirmo no edital antes de qualquer lance.",
+          "titulo": "Residencial Petrópolis — Apto. 104",
+          "bairro": "Cachimbo",
+          "cidade": "Uberaba",
+          "uf": "MG",
+          "modalidade": "Venda online",
+          "avaliacao": 179000,
+          "lance": 98118.84,
+          "area": "42,9 m² privativos",
+          "quartos": "",
+          "vagas": "",
+          "extras": [
+            "Aceita FGTS e financiamento"
+          ],
+          "foto": "img/moises/8787708660553.jpg",
+          "endereco": "Av. Pedro Lucas, 601 · Apto. 104, Bl. 02 · CEP 38067-400",
+          "mapa": "Avenida Pedro Lucas, 601, Cachimbo, Uberaba, MG",
+          "analise": "Desconto de 45% e valor abaixo de R$ 100 mil."
+        },
+        {
+          "data": "14/10/2026 às 18h (venda online)",
+          "rotuloValor": "Valor de venda",
+          "ocupacao": "Pode estar ocupado",
+          "atencao": "Pode estar ocupado: confirmo a situação e as despesas de condomínio no edital antes de qualquer lance.",
+          "titulo": "Residencial Turim — Apto. 203",
+          "bairro": "Recreio dos Bandeirantes",
+          "cidade": "Uberaba",
+          "uf": "MG",
+          "modalidade": "Venda online",
+          "avaliacao": 186000,
+          "lance": 103989.34,
+          "area": "39,3 m² privativos · 58,19 m² totais",
+          "quartos": "2 quartos",
+          "vagas": "1 vaga",
+          "extras": [
+            "Aceita FGTS e financiamento"
+          ],
+          "foto": "img/moises/8787712719745.jpg",
+          "endereco": "Rua Álvaro Jacinto da Cruz, 471 · Apto. 203, Bl. 18 · CEP 38040-530",
+          "mapa": "Rua Álvaro Jacinto da Cruz, 471, Recreio dos Bandeirantes, Uberaba, MG",
+          "analise": "Mesmo residencial do apto. 302, com valor um pouco menor. Vale comparar os dois."
+        },
+        {
+          "data": "14/10/2026 às 18h (venda online)",
+          "rotuloValor": "Valor de venda",
+          "ocupacao": "Pode estar ocupado",
+          "atencao": "Pode estar ocupado: confirmo a situação e as despesas de condomínio no edital antes de qualquer lance.",
+          "titulo": "Rua Outono, 250 — Apto. 101 (térreo)",
+          "bairro": "Boa Vista",
+          "cidade": "Uberaba",
+          "uf": "MG",
+          "modalidade": "Venda online",
+          "avaliacao": 185000,
+          "lance": 106225.67,
+          "area": "39,3 m² privativos · 88,63 m² totais",
+          "quartos": "2 quartos",
+          "vagas": "1 vaga",
+          "extras": [
+            "Aceita FGTS e financiamento"
+          ],
+          "foto": "img/moises/8787711977554.jpg",
+          "endereco": "Rua Outono, 250 · Apto. 101, Bl. 05 (térreo)",
+          "mapa": "Rua Outono, 250, Boa Vista, Uberaba, MG",
+          "analise": "Apartamento térreo, com 2 quartos e vaga de garagem."
+        },
+        {
+          "data": "14/10/2026 às 18h (venda online)",
+          "rotuloValor": "Valor de venda",
+          "ocupacao": "Pode estar ocupado",
+          "atencao": "Pode estar ocupado: confirmo a situação e as despesas de condomínio no edital antes de qualquer lance.",
+          "titulo": "Residencial Turim — Apto. 302",
+          "bairro": "Recreio dos Bandeirantes",
+          "cidade": "Uberaba",
+          "uf": "MG",
+          "modalidade": "Venda online",
+          "avaliacao": 186000,
+          "lance": 106799.86,
+          "area": "39,3 m² privativos · 58,19 m² totais",
+          "quartos": "2 quartos",
+          "vagas": "1 vaga",
+          "extras": [
+            "Aceita FGTS e financiamento"
+          ],
+          "foto": "img/moises/8787712411422.jpg",
+          "endereco": "Rua Álvaro Jacinto da Cruz, 471 · Apto. 302, Bl. 12 · CEP 38040-530",
+          "mapa": "Rua Álvaro Jacinto da Cruz, 471, Recreio dos Bandeirantes, Uberaba, MG",
+          "analise": "Mesmo residencial e mesma metragem do apto. 203."
+        },
+        {
+          "data": "14/10/2026 às 18h (venda online)",
+          "rotuloValor": "Valor de venda",
+          "ocupacao": "Pode estar ocupado",
+          "atencao": "Pode estar ocupado: confirmo a situação e as despesas de condomínio no edital antes de qualquer lance.",
+          "titulo": "Residencial Veneza — Apto. 302",
+          "bairro": "Boa Vista",
+          "cidade": "Uberaba",
+          "uf": "MG",
+          "modalidade": "Venda online",
+          "avaliacao": 187000,
+          "lance": 107374.05,
+          "area": "39,3 m² privativos · 78,07 m² totais",
+          "quartos": "2 quartos",
+          "vagas": "1 vaga",
+          "extras": [
+            "Aceita FGTS e financiamento",
+            "Área de serviço"
+          ],
+          "foto": "img/moises/8787716469913.jpg",
+          "endereco": "Rua Outono, 250 · Apto. 302, Bl. 04 · CEP 38071-180",
+          "mapa": "Rua Outono, 250, Boa Vista, Uberaba, MG",
+          "analise": "Mesmo endereço do apto. 101 da Rua Outono, 250, com área de serviço."
+        },
+        {
+          "data": "14/10/2026 às 18h (venda online)",
+          "rotuloValor": "Valor de venda",
+          "ocupacao": "Pode estar ocupado",
+          "atencao": "O anúncio marca este imóvel como \"em disputa\". Confirmo o que isso significa neste caso antes de qualquer lance. Pode estar ocupado: confirmo no edital.",
+          "titulo": "Jardim do Lago — Apto. 401 (Torre 02)",
+          "bairro": "Jardim do Lago",
+          "cidade": "Uberaba",
+          "uf": "MG",
+          "modalidade": "Venda online",
+          "avaliacao": 208000,
+          "lance": 119432.1,
+          "area": "41,97 m² privativos · 82,32 m² totais",
+          "quartos": "2 quartos",
+          "vagas": "1 vaga",
+          "extras": [
+            "Aceita FGTS e financiamento",
+            "Área de serviço"
+          ],
+          "foto": "img/moises/8787716272443.jpg",
+          "endereco": "Rua Clodion Rezende, 363 · Apto. 401, Bl. A, Torre 02 · CEP 38081-535",
+          "mapa": "Rua Clodion Rezende, 363, Jardim do Lago, Uberaba, MG",
+          "analise": "No teto da sua faixa de investimento, com 2 quartos, vaga e área de serviço."
+        }
+      ]
+    };
+  </script>
+    <header>
+    <div class="wrap">
+      <a href="https://leilaocomneto.com.br/"><img src="logo-transparent.png" alt="Leilão com Neto"></a>
+      <span class="tag">Seleção personalizada</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <h1 id="titulo"></h1>
+      <p class="lede" id="lede"></p>
+      <div class="chips" id="chips"></div>
+      <p class="prepared" id="prepared"></p>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <h2 class="section-title" id="contagem"></h2>
+    <div class="grid" id="lista"></div>
+
+    <section class="closing">
+      <h2>Gostou de algum? Vamos analisar juntos.</h2>
+      <p>Antes de qualquer lance eu leio o edital completo, calculo os custos reais e te digo até quanto vale a pena ir.</p>
+      <a class="btn btn-wa" id="cta-final" target="_blank" rel="noopener">Falar com o Neto no WhatsApp</a>
+    </section>
+
+    <p class="disclaimer">
+      Seleção elaborada com base no seu perfil, a partir de editais publicados. Valores, datas e condições são informativos e podem ser alterados pelo leiloeiro ou pelo juízo a qualquer momento. A análise completa de cada edital, incluindo débitos, ocupação e riscos, é feita na assessoria. Esta apresentação não constitui garantia de resultado ou de retorno.
+    </p>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 Leilão com Neto — Assessoria em Leilões Judiciais e Extrajudiciais · @leilao.comneto</div>
+  </footer>
+
+  <script>
+    (function () {
+      const P = PROPOSTA;
+      const brl = n => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(n);
+      const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+      const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+      const wa = msg => 'https://wa.me/' + P.whatsapp + '?text=' + encodeURIComponent(msg);
+
+      document.getElementById('titulo').innerHTML = 'Olá, <span>' + esc(P.cliente) + '</span>.<br>Separei estas oportunidades para o seu perfil.';
+      document.getElementById('lede').textContent = 'Cada imóvel abaixo foi escolhido pelo que você me pediu: finalidade, faixa de investimento e região.';
+      document.getElementById('prepared').textContent = 'Seleção preparada em ' + P.preparadoEm;
+      document.getElementById('contagem').textContent = P.imoveis.length + (P.imoveis.length === 1 ? ' oportunidade selecionada' : ' oportunidades selecionadas');
+
+      const chips = document.getElementById('chips');
+      Object.keys(P.perfil).forEach(k => chips.appendChild(el('span', 'chip', '<b>' + esc(k) + '</b>' + esc(P.perfil[k]))));
+
+      const lista = document.getElementById('lista');
+      P.imoveis.forEach(im => {
+        const desc = im.avaliacao > 0 && im.lance > 0 ? Math.round((1 - im.lance / im.avaliacao) * 100) : null;
+        const card = el('article', 'card');
+
+        const photo = el('div', 'photo');
+        if (im.foto) {
+          const img = el('img'); img.src = im.foto; img.alt = im.titulo; img.loading = 'lazy';
+          photo.appendChild(img);
+        } else {
+          photo.appendChild(el('span', null, 'Foto indisponível'));
+        }
+        if (im.modalidade) photo.appendChild(el('span', 'badge', esc(im.modalidade)));
+        if (desc !== null && desc > 0) photo.appendChild(el('span', 'discount', desc + '% abaixo da avaliação'));
+        card.appendChild(photo);
+
+        const body = el('div', 'body');
+        body.appendChild(el('h3', null, esc(im.titulo)));
+        body.appendChild(el('div', 'loc', (im.bairro ? esc(im.bairro) + ' · ' : '') + esc(im.cidade) + (im.uf ? ' / ' + esc(im.uf) : '')));
+        if (im.endereco) body.appendChild(el('div', 'addr', esc(im.endereco)));
+
+        const prices = el('div', 'prices');
+        prices.appendChild(el('div', 'price', '<small>Avaliação</small><strong>' + brl(im.avaliacao) + '</strong>'));
+        prices.appendChild(el('div', 'price main', '<small>' + esc(im.rotuloValor || 'Lance atual') + '</small><strong>' + brl(im.lance) + '</strong>'));
+        body.appendChild(prices);
+
+        const facts = el('div', 'facts');
+        [im.area, im.quartos, im.vagas].concat(im.extras || []).filter(Boolean).forEach(f => facts.appendChild(el('span', 'fact', esc(f))));
+        if (im.data) facts.appendChild(el('span', 'fact', 'Leilão: ' + esc(im.data)));
+        if (im.ocupacao) {
+          const o = im.ocupacao.toLowerCase();
+          const warn = o.indexOf('desocupado') === -1 && o.indexOf('ocupado') > -1;
+          facts.appendChild(el('span', 'fact ' + (warn ? 'warn' : 'ok'), esc(im.ocupacao)));
+        }
+        body.appendChild(facts);
+
+        if (im.analise) body.appendChild(el('p', 'note', '<b>Minha leitura:</b> ' + esc(im.analise)));
+        if (im.atencao) body.appendChild(el('p', 'attention', '⚠ ' + esc(im.atencao)));
+
+        const actions = el('div', 'actions');
+        const mapQuery = im.mapa || [im.endereco, im.cidade, im.uf].filter(Boolean).join(', ');
+        if (mapQuery) {
+          const mp = el('a', 'btn btn-map', '📍 Ver no Google Maps');
+          mp.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(mapQuery);
+          mp.target = '_blank'; mp.rel = 'noopener';
+          actions.appendChild(mp);
+        }
+        const ask = el('a', 'btn btn-wa', 'Quero analisar este');
+        ask.target = '_blank'; ask.rel = 'noopener';
+        ask.href = wa('Olá, Neto! Vi a seleção que você preparou e quero analisar este imóvel: ' + im.titulo + ' (' + im.cidade + '/' + im.uf + ').');
+        actions.appendChild(ask);
+        if (im.edital) {
+          const ed = el('a', 'btn btn-ghost', 'Ver edital');
+          ed.href = im.edital; ed.target = '_blank'; ed.rel = 'noopener';
+          actions.appendChild(ed);
+        }
+        body.appendChild(actions);
+
+        card.appendChild(body);
+        lista.appendChild(card);
+      });
+
+      const cta = document.getElementById('cta-final');
+      cta.href = wa('Olá, Neto! Vi a seleção de imóveis que você preparou para mim e quero conversar.');
+    })();
+  </script>
+</body>
+</html>
